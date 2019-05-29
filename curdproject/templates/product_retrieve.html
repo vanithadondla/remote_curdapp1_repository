@@ -1,0 +1,96 @@
+<html>
+<head>
+    <title> product retrieve Form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+<style>
+    table{
+        margin-top:10px;
+        width:120px;
+    }
+    th,td{
+        padding:10px 20px 10px 20px;
+        text-align:center;
+    }
+    #nopro{
+        color:red;
+        border:2px red solid;
+        height:400px;
+        padding-top:150px;
+        font-size:50px;
+        margin:10px 300px 10px;
+        text-align:center;
+        background-image:radial-gradient(blue,yellow,green,deeppink);
+    }
+    body{
+        background-color:cyan;
+    }
+    #divid{
+        margin-top:30px;
+        font-size:20px;
+    }
+    a{
+        color:red;
+    }
+    h2{
+        font-size:70px;
+        text-shadow:2px 2px red;
+    }
+    tbody:nth-of-type(even){
+        background-color:darkorchid;
+    }
+    tbody:nth-of-type(odd){
+        background-color:orchid;
+    }
+    thead{
+        background-color:red;
+    }
+    th,td{
+        color:white;
+    }
+</style>
+<body>
+{%  if pdata %}
+<center>
+    <h2>product Details</h2>
+    <table border="2px">
+        <thead>
+        <tr>
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Product cost</th>
+            <th>Product Color</th>
+            <th>Product Class</th>
+            <th>Customer Name</th>
+            <th>Customer Mobile</th>
+            <th>Customer Email</th>
+        </tr>
+        </thead>
+        {%  for i in pdata %}
+        <tbody>
+        <tr>
+            <td>{{ i.product_id }}</td>
+            <td>{{ i.product_name }}</td>
+            <td>{{ i.product_cost }}</td>
+            <td>{{ i.product_color }}</td>
+            <td>{{ i.product_class }}</td>
+            <td>{{ i.customer_name }}</td>
+            <td>{{ i.customer_mobile }}</td>
+            <td>{{ i.customer_email }}</td>
+        </tr>
+        </tbody>
+        {%  endfor %}
+    </table>
+</center>
+{% else %}
+<h2 id="nopro">Product are not available</h2>
+{%  endif %}
+<center><div id="divid"><a id="aid" href="/#/"> Go to Home</a></div></center>
+</body>
+</html>
